@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <h6 class="titulo">Datos del vehiculo.</h6>
+</div>
+<hr>
+
+    <form class="fondo-mercantil container" [formGroup]="registroDos">
+
+        <div class="row justify-content-center">
+
+            <div class="col-xs-12 col-md-6 col-sm-12 col-lg-6  form-group">
+                <label for="marcaInput"  class="form-label" >Marca</label>
+                <select id="marcaInput"
+                #sMarca
+                (change)="setMarca(sMarca.value)"
+                    class="form-select form-control">
+                    <option *ngFor="let marca of marcas; let i = index" value="{{i}}">{{marca.desc}}</option>
+                </select>
+                <p class="input-error" *ngIf="registroDos.controls['marca'].hasError('required')">*Requerido</p>
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-sm-12 col-lg-6  form-group">
+                <label for="anioInput" class="form-label">Año</label>
+                <input (change)="traerModelos()" (change)="traerVersiones()" type="tel"
+                    id="anioInput" formControlName="anio" class="form-control">
+                    <p class="input-error" *ngIf="registroDos.controls['anio'].hasError('required')">*Requerido</p>
+                    <p class="input-error" *ngIf="registroDos.controls['anio'].hasError('minlength') || registroDos.controls['anio'].hasError('maxlength') ">
+                        *Deben ser 4 caracteres numéricos</p>
+                    <p class="input-error" *ngIf="registroDos.controls['anio'].hasError('menor')">*Debe ser menor a 20 años</p>
+                    <p class="input-error" *ngIf="registroDos.controls['anio'].hasError('max')">*Debe ser menor al año actual</p>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-12 col-md-6 col-sm-12 col-lg-6  form-group">
+
+                <label for="modeloInput" class="form-label">Modelo</label>
+                <select id="modeloInput" (change)="traerVersiones()" formControlName="modelo"
+                    class="form-select form-control" disabled="{{!registroDos.controls['anio'].valid}}">
+                    <option *ngFor="let modelo of modelos" value="{{modelo}}">{{modelo}}</option>
+                </select>
+                <p class="input-error" *ngIf="registroDos.controls['modelo'].hasError('required')">*Requerido</p>
+
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-sm-12 col-lg-6 form-group">
+
+                <label for="versionInput" class="form-label">Versión</label>
+                <select id="versionInput" class="form-select form-control"
+                #sVersion
+                (change)="setVersion(sVersion.value)">
+                    <option *ngFor="let version of versiones; let i = index" value="{{i}}">{{version.desc}}</option>
+                </select>
+
+            </div>
+        </div>
+
+
+
+        <div class="row justify-content-center">
+            <button class="btn btn-primary" (click)="retroceder()">Atras</button>
+            &nbsp;
+            <button class="btn btn-primary" (click)="avanzar()" [disabled]="!registroDos.valid">Siguiente</button>
+        </div>
+
+    </form>

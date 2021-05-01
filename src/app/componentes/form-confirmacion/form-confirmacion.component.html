@@ -1,0 +1,153 @@
+
+
+<div class="row justify-content-center">
+    <h6 class="titulo">Verifique sus datos por favor.</h6>
+</div>
+<hr>
+
+<div class="row">
+    <div class="fondo-mercantil padding col-12 ">
+        <div class="row justify-content-center">
+            <h6 class="titulo">Datos de personales</h6>
+        </div>
+        <div *ngIf="datosUsuario">
+            <div class="row">
+                <div class="col-6">
+                    <label>Nombre: &nbsp; <b>{{datosUsuario.nombre}}</b></label>
+                </div>
+                <div class="col-6">
+                    <label>Apellido: &nbsp; <b>{{datosUsuario.apellido}}</b></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label>Dni: &nbsp; <b>{{datosUsuario.dni}}</b></label>
+                </div>
+                <div class="col-6">
+                    <label>Fecha de nacimiento: &nbsp; <b>{{datosUsuario.fecha_nacimiento}}</b></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label>Usuario: &nbsp; <b>{{datosUsuario.usuario}}</b></label>
+                </div>
+                <div class="col-6">
+                    <label>Contraseña: &nbsp; <b>{{datosUsuario.fecha_nacimiento}}</b></label>
+                </div>
+            </div>
+            <hr>
+            <div class="row justify-content-center">
+                <h6 class="titulo">Contacto</h6>
+            </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>Telefono: &nbsp; <b>{{datosUsuario.telefono}}</b></label>
+                    </div>
+                    <div class="col-6">
+                        <label>Celular: &nbsp; <b>{{datosUsuario.celular}}</b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label>Email: &nbsp; <b>{{datosUsuario.email}}</b></label>
+                    </div>
+                </div>
+            <hr>
+
+            <div class="row justify-content-center">
+                <h6 class="titulo">Ubicación</h6>
+            </div>
+
+
+            <div class="row">
+                <div class="col-4">
+                    <label>Provincia: <b> &nbsp;{{datosUsuario.provincia.nombre}}</b></label>
+                </div>
+
+                <div class="col-4">
+                    <label>Ciudad: <b> &nbsp;{{datosUsuario.ciudad.nombre}}</b></label>
+                </div>
+
+                <div class="col-4">
+                    <label>Domicilio: <b> &nbsp;{{datosUsuario.domicilio}}</b></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="row">
+
+    <div class="fondo-mercantil padding col-12 ">
+        <div class="row justify-content-center">
+            <h6 class="titulo">Datos del vehiculo</h6>
+        </div>
+
+        <ng-container *ngIf="datosVehiculo">
+            <div class="row">
+                <div class="col-6">
+                    <label>Marca: &nbsp; <b>{{datosVehiculo.marca.desc}}</b></label>
+                </div>
+                <div class="col-6">
+                    <label>Modelo: &nbsp; <b>{{datosVehiculo.modelo}}</b></label>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                    <label>versión: &nbsp; <b>{{datosVehiculo.version.desc}}</b></label>
+                </div> 
+
+                <div class="col-6">
+                    <label>Año: &nbsp; <b>{{datosVehiculo.anio}}</b></label>
+                </div> 
+
+            </div>
+
+        </ng-container>
+    </div>
+</div>
+
+
+<br>
+<div class="row">
+    <div class="fondo-mercantil padding col-12 ">
+        <div class="row justify-content-center">
+            <h6 class="titulo">Datos de la cobertura</h6>
+        </div>
+        <ng-container *ngIf="datosCobertura">
+            <div class="row">
+                <div class="col-6">
+                    <label>Titulo: &nbsp; <b>{{datosCobertura.titulo}}</b></label>
+                </div>
+                <div class="col-6">
+                    <label>Costo: &nbsp; <b>{{datosCobertura.costo | currency}}</b></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label>Granizo: &nbsp; <b>{{datosCobertura.granizo ? 'si' : 'no'}}</b></label>
+                </div>
+                <div class="col-6">
+                    <label>Franquicia: &nbsp; <b>{{datosCobertura.franquicia | currency}}</b></label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <h6>{{datosCobertura.texto}}</h6>
+                    <p>
+                        {{datosCobertura.descripcion}}
+                    </p>
+                </div>
+
+            </div>
+        </ng-container>
+    </div>
+</div>
+<br>
+
+<div class="row justify-content-center">
+    <button (click)="enviar()" class="btn btn-primary" >Guardar</button>
+</div>

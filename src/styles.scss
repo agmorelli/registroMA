@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+:root {
+
+    --mercantil-amarillo: #C9D443;
+    --mercantil-azul: #00609C;
+
+}
+hr{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #00609C;
+}
+
+form{
+    border-style: solid;
+    border-width: 1px;
+    padding: 2rem;
+    border-color: rgba(199, 196, 196, 0.712);
+
+}
+
+
+
+.input-error {
+    font-size: small;
+    font-weight: lighter;
+    color: rgba(243, 82, 82, 0.74);
+}
+
+.btn-primary {
+    background-color:#C9D443 !important;
+    border-color: #dfe971 !important;
+}
+
+.center {
+    position: absolute;
+    top: 45%;
+}
+
+
+  
+.titulo{
+    
+    border-color: #00609C;
+}
+
+.ng-invalid:not(form)  {
+      border-bottom: 1px solid #e68a89c7;
+    //   background-color: rgba(250, 171, 171, 0.466);
+     
+  }
+
+
+  .ng-valid:not(form)  {
+    border-bottom: 1px solid #89e69dc7;
+  }
+
+  .fondo-mercantil {
+    background-color: #FAFAFA;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(199, 196, 196, 0.712);
+  }
+
+  @media(max-width: 500px){
+    label {
+        font-size: small;
+    }
+}
